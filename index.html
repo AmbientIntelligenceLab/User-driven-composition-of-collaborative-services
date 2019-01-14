@@ -25,7 +25,7 @@
   </style>
 </head>
 <body>
-
+  
   <p>
     <button onclick="showCode()">Show PHP</button>
     <button onclick="runCode()">Run PHP</button>
@@ -82,19 +82,24 @@
 
 
   <script>
+    //init workspace and add the blocks
     var demoWorkspace = Blockly.inject('blocklyDiv',
         {media: 'blockly/media/',toolbox: document.getElementById('toolbox')});
 
+    // Generate JavaScript code and display it.
     function showCode() {
-      // Generate JavaScript code and display it.
       Blockly.PHP.INFINITE_LOOP_TRAP = null;
       var code = Blockly.PHP.workspaceToCode(demoWorkspace);
       alert(code);
     }
 
-    function runCode() {
 
+    //run the codes of demoWorkspace
+    function runCode() {
+            
       var code = Blockly.PHP.workspaceToCode(demoWorkspace);
+      //next function post is called
+      //post function get 3 perameters, we gave the path where it will execute and the codes of the demoWorkspace
       post("script.php",code);
       //window.location.href = "http://webapi.test/script.php?"+"code="+code;
       // Generate JavaScript code and run it.
@@ -129,7 +134,7 @@ function post(path, params, method) {
     form.submit();
 }
 
-
+    //show xml tree
     function showXml() {
       var xmlDom = Blockly.Xml.workspaceToDom(demoWorkspace);
       var xmlText = Blockly.Xml.domToPrettyText(xmlDom);

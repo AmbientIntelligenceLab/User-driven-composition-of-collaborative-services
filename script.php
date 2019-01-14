@@ -26,7 +26,7 @@ $end = '
 </html>';
 
 
-//recive the code from blockly
+//recive the code from blockly :from->index.html
 $code = $_POST['code'];
 //echo $code;
 
